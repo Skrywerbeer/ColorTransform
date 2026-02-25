@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+	<link rel="stylesheet" href="./styles.css">
+  </head>
+
+  <body>
+	<section class="main">
+	<math id="matrixEquation">
+	  <mrow>
+		<mrow id="matrixRow">
+		  <mo>(</mo>
+		  <mtable id="matrixTable">
+			<mtr>
+			  <mtd><msub><mi>r</mi><mn>1</mn></msub></mtd>
+			  <mtd><msub><mi>r</mi><mn>2</mn></msub></mtd>
+			  <mtd><msub><mi>r</mi><mn>3</mn></msub></mtd>
+			</mtr>
+			<mtr>
+			  <mtd><msub><mi>g</mi><mn>1</mn></msub></mtd>
+			  <mtd><msub><mi>g</mi><mn>2</mn></msub></mtd>
+			  <mtd><msub><mi>g</mi><mn>3</mn></msub></mtd>
+			</mtr>
+			<mtr>
+			  <mtd><msub><mi>b</mi><mn>1</mn></msub></mtd>
+			  <mtd><msub><mi>b</mi><mn>2</mn></msub></mtd>
+			  <mtd><msub><mi>b</mi><mn>3</mn></msub></mtd>
+			</mtr>
+		  </mtable>
+		  <mo>)</mo>
+		</mrow>
+		<mrow id="inputRow">
+		  <mo>(</mo>
+		  <mtable id="inputTable">
+			<mtr><mtd><mi>R</mi></mtd></mtr>
+			<mtr><mtd><mi>G</mi></mtd></mtr>
+			<mtr><mtd><mi>B</mi></mtd></mtr>
+		  </mtable>
+		  <mo>)</mo>
+		</mrow>
+		<mo>=</mo>
+		<mrow id="outputRow">
+		  <mo>(</mo>
+		  <mtable id="outputTable">
+			<mtr><mtd><mi>R&prime;</mi></mtd></mtr>
+			<mtr><mtd><mi>G&prime;</mi></mtd></mtr>
+			<mtr><mtd><mi>B&prime;</mi></mtd></mtr>
+		  </mtable>
+		  <mo>)</mo>
+		</mrow>
+	  </mrow>
+	</math>
+	</section>
+	
+	<section id="swatchSection" class="main">
+	  <svg id="swatches" viewBox="0 0 2 1" preserveAspectRatio="none">
+		<rect height="1" width="1" id="inputSwatch" fill="cyan" />
+		<rect x="1" height="1" width="1" id="outputSwatch" fill="magenta" />
+	  </svg>
+	</section>
+	<section id="equationSystem" class="main">
+	  <math>
+		<mrow>
+		  <mrow class="term">
+			<msub><mi>r</mi><mn>1</mn></msub>
+			<mi>R</mi>
+		  </mrow>
+		  <mo>+</mo>
+		  <mrow class="term">
+			<msub><mi>r</mi><mn>2</mn></msub>
+			<mi>G</mi>
+		  </mrow>
+		  <mo>+</mo>
+		  <mrow class="term">
+			<msub><mi>r</mi><mn>3</mn></msub>
+			<mi>B</mi>
+		  </mrow>
+		  <mo>=</mo>
+		  <mi class="term">R&prime;</mi>
+		</mrow>
+	  </math>
+	  <math>
+		<mrow>
+		  <mrow class="term">
+			<msub><mi>g</mi><mn>1</mn></msub>
+			<mi>R</mi>
+		  </mrow>
+		  <mo>+</mo>
+		  <mrow class="term">
+			<msub><mi>g</mi><mn>2</mn></msub>
+			<mi>G</mi>
+		  </mrow>
+		  <mo>+</mo>
+		  <mrow class="term">
+			<msub><mi>g</mi><mn>3</mn></msub>
+			<mi>B</mi>
+		  </mrow>
+		  <mo>=</mo>
+		  <mi class="term">G&prime;</mi>
+		</mrow>
+	  </math>
+	  <math>
+		<mrow>
+		  <mrow class="term">
+			<msub><mi>b</mi><mn>1</mn></msub>
+			<mi>R</mi>
+		  </mrow>
+		  <mo>+</mo>
+		  <mrow class="term">
+			<msub><mi>b</mi><mn>2</mn></msub>
+			<mi>G</mi>
+		  </mrow>
+		  <mo>+</mo>
+		  <mrow class="term">
+			<msub><mi>b</mi><mn>3</mn></msub>
+			<mi>B</mi>
+		  </mrow>
+		  <mo>=</mo>
+		  <mrow><mi class="term">B&prime;</mi></mrow>
+		</mrow>
+	  </math>
+	</section>
+	<section id="inputPage">
+	  <button id="closeInputPageButton" type="button">⛌</button>
+
+	  <div>
+		<label for="r1">r<sub>1</sub></label>
+		<input id="r1" name="r1" type="number" value="1" />
+	  </div>
+	  <div>
+		<label for="r2">r<sub>2</sub></label>
+		<input id="r2" name="r2" type="number" value="0" />
+	  </div>
+	  <div>
+		<label for="r3">r<sub>3</sub></label>
+		<input id="r3" name="r3" type="number" value="0" />
+	  </div>
+	  <div>
+		<label for="r1">g<sub>1</sub></label>
+		<input id="g1" name="g1" type="number" value="0" />
+	  </div>
+	  <div>
+		<label for="g2">g<sub>2</sub></label>
+		<input id="g2" name="g2" type="number" value="1" />
+	  </div>
+	  <div>
+		<label for="g3">g<sub>3</sub></label>
+		<input id="g3" name="g3" type="number" value="0" />
+	  </div>
+	  <div>
+		<label for="b1">b<sub>1</sub></label>
+		<input id="b1" name="b1" type="number" value="0" />
+	  </div>
+	  <div>
+		<label for="b2">b<sub>2</sub></label>
+		<input id="b2" name="b2" type="number" value="0" />
+	  </div>
+	  <div>
+		<label for="b3">b<sub>3</sub></label>
+		<input id="b3" name="b3" type="number" value="1" />
+	  </div>
+
+	</section>
+
+	<input id="colorPicker" type="color" value="#aa0a0a"/>
+	<script src="./main.js"></script>
+  </body>
+</html>

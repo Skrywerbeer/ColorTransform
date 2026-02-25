@@ -1,0 +1,192 @@
+@font-face {
+	font-family: "NotoSansMath";
+	src: url("./fonts/NotoSansMath-Regular/NotoSansMath-Regular.ttf");
+}
+
+@keyframes highlight{
+	from {
+		border: solid 4px transparent;
+	}
+	50% {
+		border: solid 4px orange;
+	}
+	to {
+		border: solid 4px transparent;
+	}
+}
+
+* {
+	--highlightDuration: 2s;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+	transition:
+		all 1s,
+		opacity 500ms
+	;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(#232232, black);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+
+	& section.main {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	height: 25vh;
+	margin-bottom: 5vh;
+	margin-top: 5vh;
+	}
+}
+
+#swatches {
+	width: 10vw;
+	height: 10vh;
+}
+
+math {
+	color: white;
+	display: block;
+	font-size: 4rem;
+	font-family: "NotoSansMath";
+	text-align: center;
+
+	& mtable {
+		
+		& mtr {
+		}
+		& mtd {
+			aspect-ratio: 1;
+			border-radius: 50%;
+		
+			width: 6rem;
+			height: 5rem;
+			border: solid 4px transparent;
+		}
+	}
+}
+
+#matrixRow {
+	color: white;
+}
+#inputRow {
+	color: cyan;
+	
+	& mtd {
+		background: #ffffff10;
+	}
+}
+#outputRow {
+	color: magenta;
+	
+	& mtd {
+		background: #ffffff10;
+	}
+}
+
+#matrixEquation {
+	margin-top: 4rem;
+}
+
+#swatchSection {
+	height: 10vh;
+	width: 30vw;
+
+	& svg {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+#equationSystem {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	margin-bottom: 6rem;
+
+	& .term {
+		width: 6rem;
+	}
+	& > mrow {
+		margin-bottom: 2rem;
+	}
+}
+
+input[type="color"] {
+	display: none;
+}
+
+#inputPage {
+	/* visibility: hidden; */
+	position: absolute;
+	top: 10vh;
+	left: 10vw;
+	width: 80vw;
+	height: 80vh;
+	background: black;
+	border: double 16px white;
+	border-radius: 16px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
+	color: white;
+
+	& button {
+		position: absolute;
+		right: 0;
+		margin-right: 10px;
+		margin-top: 10px;
+		width: 20mm;
+		height: 20mm;
+		border-radius: 50%;
+		border: double 4px white;
+		background-color: transparent;
+		color: white;
+		font-size: 2rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition:
+			background 200ms,
+			color 200ms
+		;
+		&:active {
+			background: white;
+			color: black;
+		}
+	}
+	
+	& div {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+	}
+
+	& label {
+		font-size: 3rem;
+	}
+	
+	& input {
+		width: 8rem;
+		height: 6rem;
+		font-size: 4rem;
+		text-align: center;
+		border: unset;
+		border-bottom: solid 8px white;
+		background-color: black;;
+		color: white;
+
+		&:focus {
+			background: white;
+			color: black;
+		}
+	}
+}

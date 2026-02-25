@@ -3,100 +3,103 @@
 <html>
   <head>
 	<link rel="stylesheet" href="./styles.css">
+	<meta charset="utf-8" />
+	<meta name="author" content="Johan Grobler" />
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
   </head>
 
   <body>
 	<button id="toggleView" type="button" >Toggle view</button>
-	<section class="main">
-	<math id="matrixEquation">
-	  <mrow>
-		<mrow id="matrixRow">
-		  <mo>(</mo>
-		  <mtable id="matrixTable">
-			<mtr>
-			  <mtd>
-				<msub class="variable"><mi>r</mi><mn>1</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			  <mtd>
-				<msub class="variable"><mi>r</mi><mn>2</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			  <mtd>
-				<msub class="variable"><mi>r</mi><mn>3</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			</mtr>
-			<mtr>
-			  <mtd>
-				<msub class="variable"><mi>g</mi><mn>1</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			  <mtd>
-				<msub class="variable"><mi>g</mi><mn>2</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			  <mtd>
-				<msub class="variable"><mi>g</mi><mn>3</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			</mtr>
-			<mtr>
-			  <mtd>
-				<msub class="variable"><mi>b</mi><mn>1</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			  <mtd>
-				<msub class="variable"><mi>b</mi><mn>2</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			  <mtd>
-				<msub class="variable"><mi>b</mi><mn>3</mn></msub>
-				<mn class="number"></mn>
-			  </mtd>
-			</mtr>
-		  </mtable>
-		  <mo>)</mo>
+	<section id="transformSection" class="main">
+	  <math id="matrixEquation">
+		<mrow>
+		  <mrow id="matrixRow">
+			<mo>(</mo>
+			<mtable id="matrixTable">
+			  <mtr>
+				<mtd>
+				  <msub class="variable"><mi>r</mi><mn>1</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+				<mtd>
+				  <msub class="variable"><mi>r</mi><mn>2</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+				<mtd>
+				  <msub class="variable"><mi>r</mi><mn>3</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+			  </mtr>
+			  <mtr>
+				<mtd>
+				  <msub class="variable"><mi>g</mi><mn>1</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+				<mtd>
+				  <msub class="variable"><mi>g</mi><mn>2</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+				<mtd>
+				  <msub class="variable"><mi>g</mi><mn>3</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+			  </mtr>
+			  <mtr>
+				<mtd>
+				  <msub class="variable"><mi>b</mi><mn>1</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+				<mtd>
+				  <msub class="variable"><mi>b</mi><mn>2</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+				<mtd>
+				  <msub class="variable"><mi>b</mi><mn>3</mn></msub>
+				  <mn class="number"></mn>
+				</mtd>
+			  </mtr>
+			</mtable>
+			<mo>)</mo>
+		  </mrow>
+		  <mrow id="inputRow">
+			<mo>(</mo>
+			<mtable id="inputTable">
+			  <mtr><mtd>
+				  <mi class="variable">R</mi>
+				  <mn class="number"></mn>
+			  </mtd></mtr>
+			  <mtr><mtd>
+				  <mi class="variable">G</mi>
+				  <mn class="number"></mn>
+			  </mtd></mtr>
+			  <mtr><mtd>
+				  <mi class="variable">B</mi>
+				  <mn class="number"></mn>
+			  </mtd></mtr>
+			</mtable>
+			<mo>)</mo>
+		  </mrow>
+		  <mo>=</mo>
+		  <mrow id="outputRow">
+			<mo>(</mo>
+			<mtable id="outputTable">
+			  <mtr><mtd>
+				  <mi class="variable">R&prime;</mi>
+				  <mn class="number"></mn>
+			  </mtd></mtr>
+			  <mtr><mtd>
+				  <mi class="variable">G&prime;</mi>
+				  <mn class="number"></mn>
+			  </mtd></mtr>
+			  <mtr><mtd>
+				  <mi class="variable">B&prime;</mi>
+				  <mn class="number"></mn>
+			  </mtd></mtr>
+			</mtable>
+			<mo>)</mo>
+		  </mrow>
 		</mrow>
-		<mrow id="inputRow">
-		  <mo>(</mo>
-		  <mtable id="inputTable">
-			<mtr><mtd>
-				<mi class="variable">R</mi>
-				<mn class="number"></mn>
-			</mtd></mtr>
-			<mtr><mtd>
-				<mi class="variable">G</mi>
-				<mn class="number"></mn>
-			</mtd></mtr>
-			<mtr><mtd>
-				<mi class="variable">B</mi>
-				<mn class="number"></mn>
-			</mtd></mtr>
-		  </mtable>
-		  <mo>)</mo>
-		</mrow>
-		<mo>=</mo>
-		<mrow id="outputRow">
-		  <mo>(</mo>
-		  <mtable id="outputTable">
-			<mtr><mtd>
-				<mi class="variable">R&prime;</mi>
-				<mn class="number"></mn>
-			</mtd></mtr>
-			<mtr><mtd>
-				<mi class="variable">G&prime;</mi>
-				<mn class="number"></mn>
-			</mtd></mtr>
-			<mtr><mtd>
-				<mi class="variable">B&prime;</mi>
-				<mn class="number"></mn>
-			</mtd></mtr>
-		  </mtable>
-		  <mo>)</mo>
-		</mrow>
-	  </mrow>
-	</math>
+	  </math>
 	</section>
 	
 	<section id="swatchSection" class="main">
@@ -105,7 +108,7 @@
 		<rect x="1" height="1" width="1" id="outputSwatch" fill="magenta" />
 	  </svg>
 	</section>
-	<section id="equationSystem" class="main">
+	<section id="equationSection" class="main">
 	  <math>
 		<mrow>
 		  <mrow class="term">

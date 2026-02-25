@@ -33,23 +33,21 @@ body {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: space-evenly;
+	/* justify-content: space-evenly; */
+	justify-content: space-around;
 
 	& section.main {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-	height: 25vh;
-	margin-bottom: 5vh;
-	margin-top: 5vh;
 	}
 }
 
 #toggleView {
 	position: absolute;
-	top: 10vh;
-	right: 5vw;
+	top: 10px;
+	right: 10px;
 	color: white;
 	width: 30mm;
 	height: 30mm;
@@ -57,22 +55,17 @@ body {
 	border-radius: 10%;
 	background-color: transparent;
 	font-size: 1.5rem;
-			display: flex;
-		align-items: center;
-		justify-content: center;
-		transition:
-			background 200ms,
-			color 200ms
-		;
-		&:active {
-			background: white;
-			color: black;
-		}
-}
-
-#swatches {
-	width: 10vw;
-	height: 10vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition:
+		background 200ms,
+		color 200ms
+	;
+	&:active {
+		background: white;
+		color: black;
+	}
 }
 
 math {
@@ -83,13 +76,12 @@ math {
 	text-align: center;
 
 	& mtable {
-		
+
 		& mtr {
 		}
 		& mtd {
 			aspect-ratio: 1;
 			border-radius: 50%;
-		
 			width: 6rem;
 			height: 5rem;
 			border: solid 4px transparent;
@@ -102,21 +94,25 @@ math {
 }
 #inputRow {
 	color: cyan;
-	
+
 	& mtd {
 		background: #ffffff10;
 	}
 }
 #outputRow {
 	color: magenta;
-	
+
 	& mtd {
 		background: #ffffff10;
 	}
 }
 
 #matrixEquation {
-	margin-top: 4rem;
+}
+
+#transformSection {
+	height: 20vh;
+	flex-grow: 1;
 }
 
 #swatchSection {
@@ -129,11 +125,12 @@ math {
 	}
 }
 
-#equationSystem {
+#equationSection {
 	display: flex;
+	flex-grow: 1;
 	flex-direction: column;
 	justify-content: space-evenly;
-	margin-bottom: 6rem;
+	/* margin-bottom: 6rem; */
 
 	& .term {
 		width: 6rem;
@@ -148,12 +145,11 @@ input[type="color"] {
 }
 
 #inputPage {
-	/* visibility: hidden; */
 	position: absolute;
 	top: 10vh;
 	left: 10vw;
 	width: 80vw;
-	height: 80vh;
+	height: 90vh;
 	background: black;
 	border: double 16px white;
 	border-radius: 16px;
@@ -191,13 +187,13 @@ input[type="color"] {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		justify-content: space-around;
+		justify-content: space-evenly;
 	}
 
 	& label {
 		font-size: 3rem;
+		margin-bottom: 1rem;
 	}
-	
 	& input {
 		width: 8rem;
 		height: 6rem;

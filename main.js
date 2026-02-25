@@ -164,12 +164,9 @@ function updateSwatchColors() {
 	const inputVector = new ColorVector(picker.value);
 	const outputSwatch = document.getElementById("outputSwatch");
 	const transformedVec = transformColor(inputVector, transformMatrix);
-	console.log("updateing output swatch");
-	console.log(inputVector);
-	console.log(transformMatrix);
-	console.log(transformedVec);
 	outputSwatch.style.setProperty("fill", transformedVec.hex);
 }
+
 function animateExplainer() {
 	console.log("stub");
 }
@@ -239,7 +236,6 @@ function connectColorPicker() {
 		picker.showPicker();
 	});
 	picker.addEventListener("input", () => {
-		console.log("picked")
 		updateInputVectorColors();
 		updateInputVectorNumbers();
 		updateOutputVectorColors();

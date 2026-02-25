@@ -6,6 +6,7 @@
   </head>
 
   <body>
+	<button id="toggleView" type="button" >Toggle view</button>
 	<section class="main">
 	<math id="matrixEquation">
 	  <mrow>
@@ -13,19 +14,46 @@
 		  <mo>(</mo>
 		  <mtable id="matrixTable">
 			<mtr>
-			  <mtd><msub><mi>r</mi><mn>1</mn></msub></mtd>
-			  <mtd><msub><mi>r</mi><mn>2</mn></msub></mtd>
-			  <mtd><msub><mi>r</mi><mn>3</mn></msub></mtd>
+			  <mtd>
+				<msub class="variable"><mi>r</mi><mn>1</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
+			  <mtd>
+				<msub class="variable"><mi>r</mi><mn>2</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
+			  <mtd>
+				<msub class="variable"><mi>r</mi><mn>3</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
 			</mtr>
 			<mtr>
-			  <mtd><msub><mi>g</mi><mn>1</mn></msub></mtd>
-			  <mtd><msub><mi>g</mi><mn>2</mn></msub></mtd>
-			  <mtd><msub><mi>g</mi><mn>3</mn></msub></mtd>
+			  <mtd>
+				<msub class="variable"><mi>g</mi><mn>1</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
+			  <mtd>
+				<msub class="variable"><mi>g</mi><mn>2</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
+			  <mtd>
+				<msub class="variable"><mi>g</mi><mn>3</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
 			</mtr>
 			<mtr>
-			  <mtd><msub><mi>b</mi><mn>1</mn></msub></mtd>
-			  <mtd><msub><mi>b</mi><mn>2</mn></msub></mtd>
-			  <mtd><msub><mi>b</mi><mn>3</mn></msub></mtd>
+			  <mtd>
+				<msub class="variable"><mi>b</mi><mn>1</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
+			  <mtd>
+				<msub class="variable"><mi>b</mi><mn>2</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
+			  <mtd>
+				<msub class="variable"><mi>b</mi><mn>3</mn></msub>
+				<mn class="number"></mn>
+			  </mtd>
 			</mtr>
 		  </mtable>
 		  <mo>)</mo>
@@ -33,9 +61,18 @@
 		<mrow id="inputRow">
 		  <mo>(</mo>
 		  <mtable id="inputTable">
-			<mtr><mtd><mi>R</mi></mtd></mtr>
-			<mtr><mtd><mi>G</mi></mtd></mtr>
-			<mtr><mtd><mi>B</mi></mtd></mtr>
+			<mtr><mtd>
+				<mi class="variable">R</mi>
+				<mn class="number"></mn>
+			</mtd></mtr>
+			<mtr><mtd>
+				<mi class="variable">G</mi>
+				<mn class="number"></mn>
+			</mtd></mtr>
+			<mtr><mtd>
+				<mi class="variable">B</mi>
+				<mn class="number"></mn>
+			</mtd></mtr>
 		  </mtable>
 		  <mo>)</mo>
 		</mrow>
@@ -43,9 +80,18 @@
 		<mrow id="outputRow">
 		  <mo>(</mo>
 		  <mtable id="outputTable">
-			<mtr><mtd><mi>R&prime;</mi></mtd></mtr>
-			<mtr><mtd><mi>G&prime;</mi></mtd></mtr>
-			<mtr><mtd><mi>B&prime;</mi></mtd></mtr>
+			<mtr><mtd>
+				<mi class="variable">R&prime;</mi>
+				<mn class="number"></mn>
+			</mtd></mtr>
+			<mtr><mtd>
+				<mi class="variable">G&prime;</mi>
+				<mn class="number"></mn>
+			</mtd></mtr>
+			<mtr><mtd>
+				<mi class="variable">B&prime;</mi>
+				<mn class="number"></mn>
+			</mtd></mtr>
 		  </mtable>
 		  <mo>)</mo>
 		</mrow>
@@ -122,7 +168,7 @@
 	  </math>
 	</section>
 	<section id="inputPage">
-	  <button id="closeInputPageButton" type="button">⛌</button>
+	  <button id="closeInputPageButton" type="button">Close</button>
 
 	  <div>
 		<label for="r1">r<sub>1</sub></label>

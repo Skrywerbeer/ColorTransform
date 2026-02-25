@@ -4,6 +4,8 @@ const transformMatrix = [
 	[0, 0, 1]
 ];
 
+let showingNumbers = false;
+
 class ColorVector {
 	constructor(hexString="#ff00ff") {
 		this.hex = hexString;
@@ -31,7 +33,7 @@ class ColorVector {
 		this._blue = Math.min(value, 255);
 		this.updateHex();
 	}
-	
+
 	getComponent(index) {
 		switch (index) {
 		case (0):
@@ -62,9 +64,9 @@ class ColorVector {
 	}
 	updateHex() {
 		this._hex = "#" +
-			this._red.toString(16).padStart(2, "0") +
-			this._green.toString(16).padStart(2, "0") +
-			this._blue.toString(16).padStart(2, "0");
+			Math.round(this._red).toString(16).padStart(2, "0") +
+			Math.round(this._green).toString(16).padStart(2, "0") +
+			Math.round(this._blue).toString(16).padStart(2, "0");
 	}
 }
 
@@ -79,10 +81,6 @@ function transformColor(color, matrix) {
 		}
 		ret.setComponent(row, value);
 	}
-	console.log("in");
-	console.log(color);
-	console.log("out");
-	console.log(ret);
 	return ret;
 }
 // redByteInHex(hex: string);
@@ -100,6 +98,17 @@ function blueByteInHex(hex) {
 	const topNibbleIndex = 5;
 	const bottomNibbleIndex = 6;
 	return hex.at(topNibbleIndex) + hex.at(bottomNibbleIndex);
+}
+
+function updateMatrixNumbers() {
+	const numbers = document.querySelectorAll("#matrixTable mn.number");
+	if (numbers.length != 9)
+		throw new Error("Failed to get all the matrix number elements.");
+	for (let row = 0; row < 3; row++) {
+		for (let column = 0; column < 3; column++) {
+			numbers[row*3 + column].textContent = transformMatrix[row][column];
+		}
+	}
 }
 
 // Takes document.getElementById(#inputRow | #outputRow) color: string)
@@ -120,13 +129,32 @@ function updateInputVectorColors() {
 	updateVectorColors(document.getElementById("inputRow"), picker.value);
 }
 
+function updateInputVectorNumbers() {
+	const picker = document.getElementById("colorPicker");
+	const inputNumbers = document.querySelectorAll("#inputTable mn.number");
+	const colorVec = new ColorVector(picker.value);
+	let i = 0;
+	for (let number of inputNumbers)
+		number.textContent = colorVec.getComponent(i++);
+}
+
 function updateOutputVectorColors() {
 	const picker = document.getElementById("colorPicker");
 	const colorVec = new ColorVector(picker.value);
 	const transformedVec = transformColor(colorVec, transformMatrix);
-	console.log(transformedVec);
-	console.log(transformedVec.hex);
 	updateVectorColors(document.getElementById("outputRow"), transformedVec.hex);
+}
+
+function updateOutputVectorNumbers() {
+	const picker = document.getElementById("colorPicker");
+	const colorVec = new ColorVector(picker.value);
+	const transformedVec = transformColor(colorVec, transformMatrix);
+	const outputNumbers = document.querySelectorAll("#outputTable mn.number");
+	if (outputNumbers.length != 3)
+		throw new Error("Failed to get output numbers.");
+	let i = 0;
+	for (let number of outputNumbers)
+		number.textContent = Math.round(transformedVec.getComponent(i++));
 }
 
 function updateSwatchColors() {
@@ -136,6 +164,10 @@ function updateSwatchColors() {
 	const inputVector = new ColorVector(picker.value);
 	const outputSwatch = document.getElementById("outputSwatch");
 	const transformedVec = transformColor(inputVector, transformMatrix);
+	console.log("updateing output swatch");
+	console.log(inputVector);
+	console.log(transformMatrix);
+	console.log(transformedVec);
 	outputSwatch.style.setProperty("fill", transformedVec.hex);
 }
 function animateExplainer() {
@@ -153,9 +185,6 @@ function openInputPage() {
 }
 
 function closeInputPage() {
-	// TODO: Animate.
-	// document.getElementById("inputPage")
-	// 	.style.setProperty("visibility", "hidden");
 	document.getElementById("inputPage")
 		.style.setProperty("opacity", 0);
 	document.getElementById("inputPage")
@@ -169,6 +198,7 @@ function readTransformInputs() {
 			transformMatrix[row][column] = readInput(row, column);
 		}
 	}
+	updateMatrixNumbers();
 }
 
 function readInput(row, column) {
@@ -189,11 +219,12 @@ function connectInputsToUpdates() {
 			// TODO: Optimize by reading just the input that changed.
 			readTransformInputs();
 			updateOutputVectorColors();
+			updateOutputVectorNumbers();
 			updateSwatchColors();
 		});
 	}
 }
-connectInputsToUpdates();
+
 
 let matrixTable = document.getElementById("matrixTable");
 let cover = document.getElementById("cover");
@@ -210,7 +241,9 @@ function connectColorPicker() {
 	picker.addEventListener("input", () => {
 		console.log("picked")
 		updateInputVectorColors();
+		updateInputVectorNumbers();
 		updateOutputVectorColors();
+		updateOutputVectorNumbers();
 		updateSwatchColors();
 	});
 }
@@ -224,30 +257,47 @@ function connectInputPageOpenClose() {
 	// TODO: connect esc and back button to close.
 }
 
+function connectToggleView() {
+	document.getElementById("toggleView").addEventListener("click", () => {
+		if (showingNumbers) {
+			variableView();
+		}
+		else {
+			numericView();
+		}
+		showingNumbers =  !showingNumbers;
+	});
+}
+
 function numericView() {
-	// matrix
-	// read elements of transformMatrix
-	// get <mtd> tags and swap in <mn> tags
-	// input vector.
-	// read picker color convert to 0-255
-	// get <mtd> tags and swap in <mn> tags.
-	console.log("stub");
+	const variables = document.querySelectorAll(".variable");
+	for (const variable of variables)
+		variable.style.setProperty("display", "none");
+	const numbers = document.querySelectorAll(".number");
+	for (const number of numbers)
+		number.style.setProperty("display", "inline");
 }
 
 function variableView() {
-	// matrix
-	// get <mtd> tags swap in <msub><mi>[rgb]</mi><mn>[123]</mn> tags.
-	// vectors
-	// get <mtd> tags swap in <mi> tags
-	console.log("stub");
+	const variables = document.querySelectorAll(".variable");
+	for (const variable of variables)
+		variable.style.setProperty("display", "inline");
+	const numbers = document.querySelectorAll(".number");
+	for (const number of numbers)
+		number.style.setProperty("display", "none");
 }
 
 function logicInit() {
+	variableView();
 	readTransformInputs();
 	updateInputVectorColors();
+	updateInputVectorNumbers();
 	updateOutputVectorColors();
+	updateOutputVectorNumbers();
 	updateSwatchColors();
 	connectColorPicker();
 	connectInputPageOpenClose();
+	connectToggleView();
+	connectInputsToUpdates();
 }
 logicInit();
